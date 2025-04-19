@@ -28,15 +28,17 @@ const ListedBook = () => {
     const sortBooks = (target) => {
         if (target === "pages") {
             const sorted = [...readBook].sort((a, b) => a.totalPages - b.totalPages)
-            console.log(readBook);
             setReadBook(sorted)
+            setWishBook(sorted)
         }
 
 
         if (target === "rating") {
             const sorted = [...readBook].sort((a, b) => a.rating - b.rating)
-            console.log(readBook);
+          
             setReadBook(sorted)
+            setWishBook(sorted)
+
         }
     }
 
