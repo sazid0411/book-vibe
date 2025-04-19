@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const BooksCard = ({ book }) => {
     return (
-        <Link to={`bookDetails/${book.bookId}`}>
+        <Link to={`/bookDetails/${book.bookId}`}>
             <div className='border-[#13131326] border mt-4 md:mt-10 rounded-2xl'>
                 <div className='p-6 flex flex-col gap-6'>
                     <div className='flex items-center justify-center bg-[#F3F3F3] max-w-[326px] h-[230px] rounded-lg'>

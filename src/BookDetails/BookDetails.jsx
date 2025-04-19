@@ -1,17 +1,29 @@
-import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
-import { addToLDB } from '../utility/localStorage';
+import { addToLDB, addToWish } from '../utility/localStorage';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+const MySwal = withReactContent(Swal)
+
+
 
 const BookDetails = () => {
+   
 
     const { id } = useParams()
     const books = useLoaderData()
     const bookID = parseInt(id)
 
-    const book = books.find(b => b.bookId === bookID)
+    const book = books.find(b => b?.bookId === bookID)
 
     const handleReadBook = (id) => {
-        addToLDB(id)
+        addToLDB(id);
+        
+    }
+
+
+    const handleWish = (id) => {
+        addToWish(id)
+
     }
 
 
@@ -64,7 +76,7 @@ const BookDetails = () => {
                     </div>
                     <div className='space-x-3 pl-3' >
                         <button onClick={() => handleReadBook(bookId)} className='btn border-1 border-[#1313134D] text-lg rounded-lg'>Read </button>
-                        <button className='btn bg-[#50B1C9] text-lg text-white rounded-lg border-0'>WishList</button>
+                        <button onClick={() => handleWish(bookId)} className='btn bg-[#50B1C9] text-lg text-white rounded-lg border-0'>WishList</button>
                     </div>
 
                 </div>
